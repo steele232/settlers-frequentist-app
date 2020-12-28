@@ -10,7 +10,7 @@
       <button>Placeholder 4</button>
     </div>
     <div class="right-roll-list">
-      <RollList v-bind:nums="[8,9,10]"/>
+      <RollList :nums="global_list"/>
     </div>
 
   </div>
@@ -19,10 +19,15 @@
 <script>
 import RollList from './components/RollList.vue'
 
-// var global_roll_list = []
-
 export default {
   name: 'App',
+  data() {
+    return {
+      global_list: [1,2,3,4,5,6,7]
+    }
+  },
+  props: {
+  },
   components: {
     RollList
   }
