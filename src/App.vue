@@ -1,62 +1,67 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.JS SICK-App"/>
-    <Hello name="Jonathan"/>
-    <Hello name="Timothy"/>
-    <Hello name="Mom"/>
-    <Hello name="Sara"/>
-    <RollItem num="12"/>
-    <RollList v-bind:nums="[8,9,10]"/>
-    <h1>SOMETHING OBVIOUS!!</h1>
+    <div class="top-histogram">
+      Placeholder for Histogram
+    </div>
+    <div class="left-button-fields">
+      <button>Placeholder 1</button>
+      <button>Placeholder 2</button>
+      <button>Placeholder 3</button>
+      <button>Placeholder 4</button>
+    </div>
+    <div class="right-roll-list">
+      <RollList v-bind:nums="[8,9,10]"/>
+    </div>
 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Hello from './components/Hello.vue'
-import RollItem from './components/RollItem.vue'
 import RollList from './components/RollList.vue'
 
-// let numsList = [8,9,10]
+// var global_roll_list = []
 
 export default {
   name: 'App',
-  props: {
-    computed: {
-      numsList() {
-        return [8,9,10]
-      }
-    }
-  },
   components: {
-    HelloWorld,
-    Hello,
-    RollItem,
     RollList
   }
 }
-/*
-
-  props: {
-    computed: {
-      
-      return [8,9,10]
-    }
-  },
-*/
 </script>
 
 <style>
+
+* {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
+
+.top-histogram {
+  padding: 10%;
+  text-align: center;
+  background-color: #EAEAEA;
+}
+
+.left-button-fields {
+  width: 75%;
+  float: left;
+  padding: 40px;
+}
+
+.right-roll-list {
+  width: 25%;
+  float: right;
+}
+
+
 </style>
 
 
