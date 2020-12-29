@@ -1,35 +1,36 @@
 <template>
   <div id="app">
     <div class="top-histogram">
-      Placeholder for Histogram
+      <Histogram :nums="global_roll_list"/>
     </div>
     <div class="left-button-fields">
-      <button>Placeholder 1</button>
-      <button>Placeholder 2</button>
-      <button>Placeholder 3</button>
-      <button>Placeholder 4</button>
+      <span v-for="(num, index) in possible_rolls" :key="index">
+        <button class="num-button" v-on:click="global_roll_list.push(num)">{{num}}</button>
+      </span>
     </div>
     <div class="right-roll-list">
-      <RollList :nums="global_list"/>
+      <RollList :nums="global_roll_list"/>
     </div>
-
   </div>
 </template>
 
 <script>
 import RollList from './components/RollList.vue'
+import Histogram from './components/Histogram.vue'
 
 export default {
   name: 'App',
   data() {
     return {
-      global_list: [1,2,3,4,5,6,7]
+      global_roll_list: [],
+      possible_rolls: [2,3,4,5,6,7,8,9,10,11,12]
     }
   },
-  props: {
+  methods: {
   },
   components: {
-    RollList
+    RollList,
+    Histogram
   }
 }
 </script>
@@ -51,7 +52,7 @@ export default {
 
 .top-histogram {
   padding: 10%;
-  text-align: center;
+  /* text-align: center; */
   background-color: #EAEAEA;
 }
 
@@ -66,6 +67,11 @@ export default {
   float: right;
 }
 
+.num-button {
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+}
 
 </style>
 
